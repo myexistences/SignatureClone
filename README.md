@@ -1,63 +1,66 @@
-# Certificate Cloner
+# SignatureClone
 
-&#x20; &#x20;
+![Repo Size](https://img.shields.io/github/repo-size/myexistences/SignatureClone?style=flat-square)
+![Stars](https://img.shields.io/github/stars/myexistences/SignatureClone?style=flat-square)
+![Forks](https://img.shields.io/github/forks/myexistences/SignatureClone?style=flat-square)
+![License](https://img.shields.io/github/license/myexistences/SignatureClone?style=flat-square)
+![Views](https://komarev.com/ghpvc/?username=myexistences\&label=Repo%20Views\&color=blue\&style=flat-square)
+
+---
 
 ## Overview
 
-**Certificate Cloner** is a Python utility designed for cloning digital certificates from one Windows PE executable to another. It is built for **security researchers** and **developers** working in **controlled testing environments**.
+**SignatureClone** is a Python tool for cloning digital signatures (certificates) from one Windows PE executable to another. Built specifically for **cybersecurity researchers**, **malware analysts**, and **developers** working in **controlled testing environments**.
 
-> ⚠️ This tool is strictly intended for educational and research purposes.
-
----
-
-## Features
-
-* Extracts digital certificates from PE files.
-* Clones certificates to a target executable.
-* Validates PE file integrity.
-* Saves certificates as `.cer` files for manual trust installation.
-* Provides detailed debugging output.
-* Instructions included for trusting certificates manually.
+> ⚠️ This project is strictly for educational and testing purposes. Misuse is prohibited.
 
 ---
 
-## Requirements
+## ✨ Features
 
-* Python 3.8 or higher
+* 🧬 Clone digital certificates from one `.exe` file to another
+* 📁 Export certificates as `.cer` files
+* 🛡️ Preserve file structure and validate PE integrity
+* 🔍 Debug-friendly logs and progress output
+* 🖱️ Includes guide for manually trusting certificates in Windows
 
-### Python Packages
+---
 
-Install required packages:
+## 🔧 Requirements
+
+* **Python** 3.8 or newer
+
+### Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Required packages include:
+Packages:
 
 * `pefile`
 * `cryptography`
 
 ---
 
-## Installation
+## 🚀 Installation
 
-Clone the repository and install dependencies:
+Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/myexistences/CertificateCloner.git
-cd CertificateCloner
+git clone https://github.com/myexistences/SignatureClone.git
+cd SignatureClone
 pip install -r requirements.txt
 ```
 
 ---
 
-## Usage
+## ⚙️ Usage
 
-Run the script with three command-line arguments:
+Run the script with three arguments:
 
 ```bash
-python CertificateCloner.py SourceFile.exe TargetFile.exe OutputFile.exe
+python CertificateCloner.py <SourceFile.exe> <TargetFile.exe> <OutputFile.exe>
 ```
 
 ### Example:
@@ -66,58 +69,55 @@ python CertificateCloner.py SourceFile.exe TargetFile.exe OutputFile.exe
 python CertificateCloner.py ClipUp.exe myapp.exe SignedApp.exe
 ```
 
-### Operation Summary:
+### Summary:
 
-* Validates input files as PE executables.
-* Extracts certificate from `SourceFile.exe`.
-* Clones it to `OutputFile.exe`.
-* Saves the certificate as `cloned_certificate.cer`.
-* Displays debug info and trust instructions.
-
----
-
-## Manual Certificate Installation (Windows)
-
-To manually trust the cloned certificate:
-
-1. Right-click `OutputFile.exe` > Properties > Digital Signatures tab.
-2. Select the signature > Details > View Certificate > Install Certificate.
-3. Choose 'Local Machine' > Next.
-4. Select 'Place all certificates in the following store' > Browse.
-5. Choose 'Trusted Root Certification Authorities' > OK > Next > Finish.
-
-> ❗ Note: Cloned signatures may appear invalid due to hash mismatch. For valid signatures, re-sign using Microsoft's `signtool.exe`.
+* Validates PE structure
+* Extracts certificate from `SourceFile.exe`
+* Injects into `OutputFile.exe`
+* Outputs debug info and `cloned_certificate.cer`
 
 ---
 
-## Security Warning
+## 🖥️ Manually Trusting the Certificate (Windows)
 
-> Adding unverified certificates to the Trusted Root store can pose serious security risks. Use this tool only in isolated and secure test environments.
+1. Right-click `OutputFile.exe` → Properties → Digital Signatures
+2. Click the signature → Details → View Certificate → Install Certificate
+3. Choose **Local Machine** → Next
+4. Choose **Trusted Root Certification Authorities**
+5. Click OK → Next → Finish
 
-* Never use this tool on production systems.
-* Always verify the origin and intent of certificates.
-* Cloning certificates without permission may violate laws or software agreements.
-
----
-
-## Disclaimer
-
-This tool is meant for educational purposes only. Unauthorized use of certificate cloning techniques may violate software licenses, intellectual property laws, or other regulations. The author disclaims any liability for misuse.
-
-> **Use responsibly and only in environments where you have explicit permission.**
+> ❗ Windows will still show the signature as invalid unless re-signed with `signtool.exe`.
 
 ---
 
-## Contributing
+## 🔐 Security Warning
 
-Contributions are welcome via pull requests or issues. Please ensure all changes are well-documented and tested.
+> Do not use in production. Use only in secure lab/test environments.
 
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+* Adding untrusted certificates to the system store is risky
+* Cloning without permission may violate laws or licenses
+* Always verify source files and use responsibly
 
 ---
 
-\*\*Made with ❤️ by \*\*[**@myexistences**](https://github.com/myexistences)
+## ⚖️ Disclaimer
+
+This script is for **educational and ethical research** only. Misuse (e.g., spoofing, impersonation) may be illegal. The developer assumes no liability.
+
+> Always use this tool in environments where you have **explicit permission**.
+
+---
+
+## 🤝 Contributing
+
+Feel free to submit PRs or open issues! Make sure your changes include appropriate tests and documentation.
+
+---
+
+## 📄 License
+
+MIT License. See [LICENSE](LICENSE).
+
+---
+
+**Crafted with 🛠️ by [@myexistences](https://github.com/myexistences)**
