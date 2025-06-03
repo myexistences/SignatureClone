@@ -78,6 +78,14 @@ python CertificateCloner.py ClipUp.exe myapp.exe SignedApp.exe
 
 ---
 
+## 🖼️ Signature Preview Example
+
+After successful cloning, you should see a Digital Signature tab like this:
+
+![Signature Preview](https://i.imgur.com/uVztFBp.png)
+
+---
+
 ## 🖥️ Manually Trusting the Certificate (Windows)
 
 1. Right-click `OutputFile.exe` → Properties → Digital Signatures
@@ -94,30 +102,4 @@ python CertificateCloner.py ClipUp.exe myapp.exe SignedApp.exe
 
 > Do not use in production. Use only in secure lab/test environments.
 
-* Adding untrusted certificates to the system store is risky
-* Cloning without permission may violate laws or licenses
-* Always verify source files and use responsibly
-
----
-
-## ⚖️ Disclaimer
-
-This script is for **educational and ethical research** only. Misuse (e.g., spoofing, impersonation) may be illegal. The developer assumes no liability.
-
-> Always use this tool in environments where you have **explicit permission**.
-
----
-
-## 🤝 Contributing
-
-Feel free to submit PRs or open issues! Make sure your changes include appropriate tests and documentation.
-
----
-
-## 📄 License
-
-MIT License. See [LICENSE](LICENSE).
-
----
-
-**Crafted with 🛠️ by [@myexistences](https://github.com/myexistences)**
+* Adding untrusted certificate
